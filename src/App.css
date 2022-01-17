@@ -1,0 +1,71 @@
+.stream-wrapper {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 180px auto;
+  height: 150px;
+}
+
+.stream-items {
+  display: flex;
+  overflow-x: hidden;
+}
+
+.stream-item {
+  min-width: 200px;
+  width: 400px;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  border: 1px solid;
+}
+
+.team-info {
+  display: grid;
+  grid-template-rows: repeat(1fr);
+}
+
+.home-team,
+.away-team {
+  text-transform: uppercase;
+  padding: 15px 0
+}
+
+.play-btn {
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-info,
+.play-btn {
+  padding: 5px;
+
+}
+
+.widget-filters {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.widget-filters select:first-of-type {
+  margin-bottom: 10px;
+}
+
+.widget-filters select {
+  width: 80%;
+  height: 40px;
+}
+
+.nav-btn {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  padding: 0 10px;
+}

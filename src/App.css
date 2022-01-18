@@ -9,6 +9,9 @@
 .stream-items {
   display: flex;
   overflow-x: hidden;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #d8d8d8;
 }
 
 .stream-item {
@@ -45,7 +48,7 @@
 }
 
 .widget-filters {
-  background-color: white;
+  background-color: #ebebeb;
   display: flex;
   flex-direction: column;
   justify-content: center;

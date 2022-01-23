@@ -13,6 +13,7 @@ function App() {
 	const [clubs, setClubs] = useState([]);
 	const [filteredData, setFilteredData] = useState([]);
 	const [filters, setFilters] = useState({});
+	const [activeIndex, setActiveIndex] = useState(0);
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -87,6 +88,18 @@ function App() {
 		console.log(filteredData);
 	}, [filters]);
 
+	const handleScrollRight = (e) => {
+		setActiveIndex(activeIndex + 1);
+	};
+
+	const handleScrollLeft = (e) => {
+		setActiveIndex(activeIndex - 1);
+	};
+
+	useEffect(() => {
+		console.log(activeIndex);
+	}, [activeIndex]);
+
 	return (
 		<div className='App'>
 			<div className='stream-wrapper'>
@@ -112,7 +125,9 @@ function App() {
 						<option value='past'>Past Streams</option>
 					</select>
 				</div>
-				{/* <NavBtn icon='<' /> */}
+				{activeIndex === 0 ? null : (
+					<NavBtn icon='<' side='left' direction={handleScrollLeft} />
+				)}
 				<div className='stream-items'>
 					{isLoading ? (
 						<h1>Loading...</h1>
@@ -120,8 +135,15 @@ function App() {
 						filteredData.map((game, i) => {
 							return (
 								<StreamItem
-									homeName={game.home_club.name}
-									awayName={game.away_club.name}
+									homeName={game.home_club.abbreviation}
+									awayName={game.away_club.abbreviation}
+									homeSlug={game.home_club.slug}
+									awaySlug={game.away_club.slug}
+									streamLink={`http://localhost:3000/games/${game.home_club.slug}-vs-${game.away_club.slug}`}
+									tipTime={new Date(game.tip_time).toLocaleTimeString([], {
+										hour: '2-digit',
+										minute: '2-digit',
+									})}
 									key={i}
 								/>
 							);
@@ -130,7 +152,7 @@ function App() {
 						<p>No Upcoming Games</p>
 					)}
 				</div>
-				{/* <NavBtn icon='>' />  */}
+				<NavBtn icon='>' side='right' direction={handleScrollRight} />
 			</div>
 		</div>
 	);

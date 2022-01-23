@@ -1,51 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a, a:active, a:visited, a:hover {
+  text-decoration: none;
+}
+
 .stream-wrapper {
   position: relative;
   width: 100%;
   display: grid;
   grid-template-columns: 180px auto;
-  height: 150px;
+  height: 120px;
 }
 
 .stream-items {
   display: flex;
   overflow-x: hidden;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  border: 1px solid #d8d8d8;
+  /* border: 1px solid #d8d8d8; */
 }
 
 .stream-item {
-  min-width: 200px;
-  width: 400px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-content: center;
+  margin: 0 10px; 
+}
+
+.stream-item-body {
+  position: relative;
+  min-width: 320px;
+  width: 320px;
+  height: 80px;
   display: grid;
-  grid-template-columns: 4fr 1fr;
-  border: 1px solid;
+  grid-template-columns: 60px 115px 120px 25px;
+  border-radius: 40px 0 0 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.20) ;
+  background: rgb(240,240,240);
+  background: linear-gradient(0deg, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 75%, rgba(240,240,240,1) 100%);
+}
+
+.comp-logo {
+  width: 100%;
+  height: 100%;
+  grid-column: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comp-logo img {
+  width: 40px;
+  margin-left: 7px;
+}
+
+.teams {
+  max-height: 80px;
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr) ;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.teams a {
+  height: 100%;
+
 }
 
 .team-info {
-  display: grid;
-  grid-template-rows: repeat(1fr);
+  width: 120px; 
+  height: 100%;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(240,240,240, 0);
+  background: linear-gradient(0deg, rgba(240,240,240,1) 0%, rgba(255,255,255,0) 25%, rgba(255,255,255,0) 75%, rgba(240,240,240,1) 100%);
 }
 
-.home-team,
-.away-team {
-  text-transform: uppercase;
-  padding: 15px 0
+.team-info:hover {
+  cursor: pointer;
 }
 
-.play-btn {
-  background-color: red;
-  color: white;
+.team-info .name {
+  font-weight: 600;
+  color: #707070;
+  font-family: 'Raleway', sans-serif;
+  font-size: 24px;
+  pointer-events: none;
+}
+
+.team-info.logo img,
+.team-info .logo img {
+  width: 25px;
+}
+
+.tip-time {
+  width: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #b03136;
+  color: #fff;
+  font-size: 11px;
 }
 
-.team-info,
-.play-btn {
-  padding: 5px;
-
+.tip-time p {
+  writing-mode: vertical-rl;
+  /*text-orientation: sideways;*/
+  transform:scale(-1);
 }
+
 
 .widget-filters {
   background-color: #ebebeb;
@@ -71,4 +145,55 @@
   align-items: center;
   background-color: aliceblue;
   padding: 0 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.nav-btn.left {
+  right: 30px;
+}
+
+.nav-btn.right {
+  right: 0;
+}
+
+.nav-btn:hover {
+  cursor: pointer;
+}
+
+/* Play Button */
+
+.btn-wrapper {
+  position: relative;
+}
+
+.play-btn {
+  width: 115px;
+  height: 115px;
+  background-color: #fff;
+  border: 10px solid #b03136;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  margin-top: -50%;
+  top: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+  transition: all ease 0.2s;
+  z-index: 999;
+}
+
+.play-btn:hover {
+  cursor: pointer;
+  transform: scale(0.95);
+}
+
+.play-btn img {
+  width: 100%;
+  align-self: center;
+  pointer-events: none;
+  transition: all ease 0.2s;  
+  border-radius: 50%;
 }
